@@ -10,7 +10,7 @@ const loginMessage = $('login-message'); const passcodeInput = $('passcode'); co
 const resultsHead = $('results-head'); const resultsBody = $('results-body'); const resultsStatus = $('results-status'); const resultTitle = $('result-title');
 const csvBase = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/export?format=csv&gid=`;
 const DATE_COLUMNS = new Set(['Actual Working date']);
-const HIDDEN_FILTERS = new Set(['visit', 'error area', 'error component', 'error type','task id','visited date','repair-finished date','customer contact','task status','employee 01','employee 02','employee 03','employee 04','employee 05','employee 06','employee 07','employee 08','employee 09','employee 10']);
+const HIDDEN_FILTERS = new Set(['visit', 'error area', 'error component', 'error type','task id','visited date','repair-finished date','customer contact','task status','employees']);
 const DROPDOWN_COLUMNS = new Set(['functional location id','business categoryfyFY','actual month']);
 function clean(value) { return String(value ?? '').replace(/\uFEFF/g, '').trim(); }
 function normalize(value) { return clean(value).toLowerCase(); }
