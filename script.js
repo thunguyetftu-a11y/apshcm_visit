@@ -10,9 +10,9 @@ const loginMessage = $('login-message'); const passcodeInput = $('passcode'); co
 const resultsHead = $('results-head'); const resultsBody = $('results-body'); const resultsStatus = $('results-status'); const resultTitle = $('result-title');
 const csvBase = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/export?format=csv&gid=`;
 const DATE_COLUMNS = new Set(['Actual Working date']);
-const HIDDEN_FILTERS = new Set(['visit', 'error area', 'error component', 'error type','task id','visited date','repair-finished date','customer contact','task status','employees']);
-const DROPDOWN_COLUMNS = new Set(['functional location id','business category','fy','actual month']);
-const NO_DROPDOWN_COLUMNS=new Set(['service order description','work details']);
+const HIDDEN_FILTERS = new Set(['visit', 'error area', 'error component', 'error type','task id','visited date','finished date','customer contact','task status','employees']);
+const DROPDOWN_COLUMNS = new Set(['project','business category','fy','actual month']);
+const NO_DROPDOWN_COLUMNS=new Set(['description','work details']);
 function clean(value) { return String(value ?? '').replace(/\uFEFF/g, '').trim(); }
 function normalize(value) { return clean(value).toLowerCase(); }
 async function fetchCsv(gid) { const response = await fetch(`${csvBase}${gid}&_=${Date.now()}`, { cache: 'no-store' }); if (!response.ok) throw new Error(`Google Sheet request failed: ${response.status}`); return response.text(); }
