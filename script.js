@@ -11,8 +11,8 @@ const resultsHead = $('results-head'); const resultsBody = $('results-body'); co
 const csvBase = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/export?format=csv&gid=`;
 const DATE_COLUMNS = new Set(['Actual Working date']);
 const HIDDEN_FILTERS = new Set(['visit', 'error area', 'error component', 'error type','task id','visited date','finished date','customer contact','task status']);
-const DROPDOWN_COLUMNS = new Set(['project','business category','fy','actual month','employees']);
-const NO_DROPDOWN_COLUMNS=new Set(['description','work details']);
+const DROPDOWN_COLUMNS = new Set(['project','business category','fy','actual month']);
+const NO_DROPDOWN_COLUMNS=new Set(['description','work details','employees']);
 function clean(value) { return String(value ?? '').replace(/\uFEFF/g, '').trim(); }
 function normalize(value) { return clean(value).toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/đ/g, 'd'); }
 async function fetchCsv(gid) { const response = await fetch(`${csvBase}${gid}&_=${Date.now()}`, { cache: 'no-store' }); if (!response.ok) throw new Error(`Google Sheet request failed: ${response.status}`); return response.text(); }
